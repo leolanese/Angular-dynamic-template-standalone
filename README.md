@@ -1,6 +1,25 @@
 # AppProject
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.0.
+```js
+// in case CLI it is not install
+npm i -g @angular/cli
+
+ng new AppProject  --routing --style=scss
+
+ng version
+
+cd AppProject/src/app
+
+ng serve --port 4200
+
+ng g c child --dynamic-form --inline-style --skip-tests
+// now add <app-child></app-child> into app.component.html 
+
+ng serve --port 4200
+
+// open code inside project
+code .
+```
 
 ## Development server
 
