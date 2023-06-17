@@ -37,7 +37,7 @@ export class DynamicFormComponent {
     // Add more fields as needed
   ];
 
-  // Declare a form variable of type FormGroup to hold the reactive form.
+  // Declare a form variable of type FormGroup to hold the reactive form
   public form!: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {}

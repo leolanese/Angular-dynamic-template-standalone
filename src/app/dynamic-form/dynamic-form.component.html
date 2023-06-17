@@ -4,12 +4,12 @@
     <div *ngFor="let field of fields">
       <label>{{ field.label }}</label>
   
-      <input [type]="field.type" [formControlName]="field.name" />
+      <input [type]="{{ field.type }}" [formControlName]="{{ field.name }}" />
   
       <div *ngIf="form.get(field.name)?.invalid && form.get(field.name)?.touched">
-        <div *ngIf="form.get(field.name)?.hasError('required')">Please provide {{ field.name }}</div>
-        <div *ngIf="form.get(field.name)?.hasError('minlength')">{{ field.name }} must be 3 characters</div>
-        <div *ngIf="form.get(field.name)?.hasError('email')">{{ field.name }} must be valid</div>
+        <div *ngIf="form.get(field.name)?.errors?.required">Please provide {{ field.name }}</div>
+        <div *ngIf="form.get(field.name)?.errors?.minlength">{{ field.name }} must be 3 characters</div>
+        <div *ngIf="form.get(field.name)?.errors?.email">{{ field.name }} must be valid</div>
       </div>
 
     </div>

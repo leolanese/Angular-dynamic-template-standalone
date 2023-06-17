@@ -12,9 +12,8 @@ cd AppProject/src/app
 
 ng serve --port 4200
 
-ng g c child --dynamic-form --inline-style --skip-tests
+ng g c dynamic-form --inline-style
 // now add <app-child></app-child> into app.component.html 
-
 
 // open code inside project
 code .
