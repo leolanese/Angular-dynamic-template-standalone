@@ -72,17 +72,15 @@ export class DynamicFormComponent {
     if (validations.includes('minLength3')) {
       validators.push(Validators.minLength(3));
     }
-    // Add more validators as needed
     
     return validators;
   }
 
   onSubmit() {
     if (this.form.valid) {
-      // Perform the necessary actions with the form data
       console.log(this.form.value);
     } else {
-      // Display error messages or handle invalid form submission
+      // Handle invalid form submission
     }
   }
 }
