@@ -7,15 +7,11 @@
       <input [type]="field.type" [formControlName]="field.name" />
   
       <div *ngIf="form.get(field.name)?.invalid && form.get(field.name)?.touched">
-        <div *ngIf="form.get(field.name)?.hasError('required')">
-          {{ field.label }} is required
-        </div>
-        
-        <div *ngIf="form.get(field.name)?.hasError('email')">
-          Please enter a valid email {{ field.label }}
-        </div>
-        <!-- Add more validation messages as needed -->
+        <div *ngIf="form.get(field.name)?.hasError('required')">Please provide {{ field.name }}</div>
+        <div *ngIf="form.get(field.name)?.hasError('minlength')">{{ field.name }} must be 3 characters</div>
+        <div *ngIf="form.get(field.name)?.hasError('email')">{{ field.name }} must be valid</div>
       </div>
+
     </div>
   
     <button type="submit" [disabled]="form.invalid">Submit</button>

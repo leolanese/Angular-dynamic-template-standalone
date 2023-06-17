@@ -26,7 +26,7 @@ export class DynamicFormComponent {
       type: 'text',
       name: 'name',
       label: 'Name',
-      validations: ['required'],
+      validations: ['required', 'minLength3'],
     },
     {
       type: 'email',
@@ -37,30 +37,44 @@ export class DynamicFormComponent {
     // Add more fields as needed
   ];
 
-  // ! operator indicate that the form property will be initialized before it is accessed in the ngOnInit method
+  // Declare a form variable of type FormGroup to hold the reactive form.
   public form!: FormGroup;
 
+  constructor(private formBuilder: FormBuilder) {}
+
+  // OnInit lifecycle hook
   ngOnInit() {
-    const formGroup: any = {}; // Explicitly typing formGroup as 'any'
+    // initialise the form 
+    this.form = this.formBuilder.group({});
+
+    // call to create form controls for each field and add them to the form group
+    this.setupFormControls();
+  }
+
+  private setupFormControls() {
     for (const field of this.fields) {
       const fieldControl = new FormControl(
         '',
         this.getValidators(field.validations)
       );
-      formGroup[field.name] = fieldControl;
+      this.form.addControl(field.name, fieldControl);
     }
-    this.form = new FormGroup(formGroup);
   }
 
   private getValidators(validations: string[] = []) {
     const validators = [];
+
     if (validations.includes('required')) {
       validators.push(Validators.required);
     }
     if (validations.includes('email')) {
       validators.push(Validators.email);
     }
+    if (validations.includes('minLength3')) {
+      validators.push(Validators.minLength(3));
+    }
     // Add more validators as needed
+    
     return validators;
   }
 
