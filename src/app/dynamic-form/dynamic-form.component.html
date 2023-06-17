@@ -1,0 +1,23 @@
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <div *ngFor="let field of fields">
+      <label>{{ field.label }}</label>
+  
+      <input [type]="field.type" [formControlName]="field.name" />
+  
+      <div *ngIf="form.get(field.name)?.invalid && form.get(field.name)?.touched">
+        <div *ngIf="form.get(field.name)?.hasError('required')">
+          {{ field.label }} is required
+        </div>
+        
+        <div *ngIf="form.get(field.name)?.hasError('email')">
+          Please enter a valid email {{ field.label }}
+        </div>
+        <!-- Add more validation messages as needed -->
+      </div>
+    </div>
+  
+    <button type="submit" [disabled]="form.invalid">Submit</button>
+  
+  </form>
