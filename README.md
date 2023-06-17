@@ -19,6 +19,18 @@ ng g c dynamic-form --inline-style
 code .
 ```
 
+##  setting noPropertyAccessFromIndexSignature 
+
+Setting it to `true`, TypeScript will enforce that you cannot access properties using the index signature on objects. This will help catch potential errors and improve type safety.
+
+```js
+{
+  "compilerOptions": {
+    "noPropertyAccessFromIndexSignature": true
+  }
+}
+```
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
