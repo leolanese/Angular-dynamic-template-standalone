@@ -38,7 +38,7 @@ export class DynamicFormComponent {
   ];
 
   // Declare a form variable of type FormGroup to hold the reactive form
-  public form!: FormGroup;
+  form!: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {}
 
@@ -53,11 +53,10 @@ export class DynamicFormComponent {
 
   private setupFormControls() {
     for (const field of this.fields) {
-      const fieldControl = new FormControl(
-        '',
-        this.getValidators(field.validations)
+      this.form.addControl(
+        field.name,
+        this.formBuilder.control('', this.getValidators(field.validations))
       );
-      this.form.addControl(field.name, fieldControl);
     }
   }
 
