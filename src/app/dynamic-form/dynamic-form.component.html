@@ -1,5 +1,5 @@
 
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
+<form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
 
     <div *ngFor="let field of fields">
       <label>{{ field.label }}</label>

@@ -7,7 +7,10 @@ import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   standalone: true,
-  imports: [CommonModule, DynamicFormComponent],
+  imports: [
+    CommonModule, 
+    DynamicFormComponent
+  ],
 })
 export class AppComponent {
   title = 'AppProject';

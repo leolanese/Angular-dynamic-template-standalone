@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 interface FormField {
@@ -12,7 +12,10 @@ interface FormField {
 
 @Component({
   selector: 'app-dynamic-form',
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule, 
+    FormsModule],
   templateUrl: './dynamic-form.component.html',
   styles: [],
   standalone: true,
@@ -35,7 +38,7 @@ export class DynamicFormComponent {
   ];
 
   // ! operator indicate that the form property will be initialized before it is accessed in the ngOnInit method
-  form!: FormGroup;
+  public form!: FormGroup;
 
   ngOnInit() {
     const formGroup: any = {}; // Explicitly typing formGroup as 'any'
