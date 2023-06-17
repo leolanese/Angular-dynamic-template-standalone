@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -38,14 +38,14 @@ export class DynamicFormComponent {
   ];
 
   // Declare a form variable of type FormGroup to hold the reactive form
-  form!: FormGroup;
+  formGroup!: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {}
 
   // OnInit lifecycle hook
   ngOnInit() {
-    // initialise the form 
-    this.form = this.formBuilder.group({});
+    // initialise the formGroup 
+    this.formGroup = this.formBuilder.group({});
 
     // call to create form controls for each field and add them to the form group
     this.setupFormControls();
@@ -53,7 +53,7 @@ export class DynamicFormComponent {
 
   private setupFormControls() {
     for (const field of this.fields) {
-      this.form.addControl(
+      this.formGroup.addControl(
         field.name,
         this.formBuilder.control('', this.getValidators(field.validations))
       );
@@ -77,8 +77,8 @@ export class DynamicFormComponent {
   }
 
   onSubmit() {
-    if (this.form.valid) {
-      console.log(this.form.value);
+    if (this.formGroup.valid) {
+      console.log(this.formGroup.value);
     } else {
       // Handle invalid form submission
     }

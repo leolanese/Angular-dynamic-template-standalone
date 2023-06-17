@@ -1,19 +1,19 @@
 
-<form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()" novalidate>
 
     <div *ngFor="let field of fields">
       <label>{{ field.label }}</label>
   
       <input [type]="field.type" [formControlName]="field.name" />
   
-      <div *ngIf="form.get(field.name)?.invalid && form.get(field.name)?.touched">
-        <div *ngIf="form.get(field.name)?.errors?.required">required {{ field.name }}</div>
-        <div *ngIf="form.get(field.name)?.errors?.minlength">{{ field.name }} must be 3 characters</div>
-        <div *ngIf="form.get(field.name)?.errors?.email">{{ field.name }} must be valid</div>
+      <div *ngIf="formGroup.get(field.name)?.invalid && formGroup.get(field.name)?.touched">
+        <div *ngIf="formGroup.get(field.name)?.errors?.required">required {{ field.name }}</div>
+        <div *ngIf="formGroup.get(field.name)?.errors?.minlength">{{ field.name }} must be 3 characters</div>
+        <div *ngIf="formGroup.get(field.name)?.errors?.email">{{ field.name }} must be valid</div>
       </div>
 
     </div>
   
-    <button type="submit" [disabled]="form.invalid">Submit</button>
+    <button type="submit" [disabled]="formGroup.invalid">Submit</button>
   
   </form>
