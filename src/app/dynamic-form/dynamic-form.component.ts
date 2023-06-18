@@ -22,16 +22,14 @@ interface FormField {
   standalone: true,
 })
 export class DynamicFormComponent {
-  fields!: FormField[];
+  fields: FormField[] = [];
   formGroup!: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
     this.fields = formConfig.fields;
-
     this.formGroup = this.formBuilder.group({});
-
     this.setupFormControls();
   }
 
