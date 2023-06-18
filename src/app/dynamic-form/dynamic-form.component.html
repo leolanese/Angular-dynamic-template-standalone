@@ -2,7 +2,7 @@
 <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" novalidate>
 
     <div *ngFor="let field of fields">
-      <label>{{ field.label }}</label>
+      <label>{{ field.name | titlecase }}</label>
   
       <input [type]="field.type" [formControlName]="field.name" />
   

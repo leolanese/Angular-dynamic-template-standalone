@@ -1,0 +1,21 @@
+{
+    "fields": [
+      {
+        "name": "name",
+        "type": "text",
+        "validators": {
+          "required": true
+        },
+        "errorMessage": "Name is required."
+      },
+      {
+        "name": "email",
+        "type": "email",
+        "validators": {
+          "required": true,
+          "email": true
+        },
+        "errorMessage": "Email is required and must be a valid email address."
+      }
+    ]
+  }
