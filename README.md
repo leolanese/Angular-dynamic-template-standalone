@@ -26,7 +26,8 @@ Setting it to `true`, TypeScript will enforce that you cannot access properties 
 ```js
 {
   "compilerOptions": {
-    "noPropertyAccessFromIndexSignature": true
+    "noPropertyAccessFromIndexSignature": true,
+    "resolveJsonModule": true,
   }
 }
 ```

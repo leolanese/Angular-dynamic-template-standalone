@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import formConfig from './../../assets/form-config.json';
 
 interface FormField {
   type: string;
   name: string;
-  label: string;
   validations?: string[];
+  errorMessage: string;
 }
 
 @Component({
@@ -21,33 +22,16 @@ interface FormField {
   standalone: true,
 })
 export class DynamicFormComponent {
-  fields: FormField[] = [
-    {
-      type: 'text',
-      name: 'name',
-      label: 'Name',
-      validations: ['required', 'minLength3'],
-    },
-    {
-      type: 'email',
-      name: 'email',
-      label: 'Email',
-      validations: ['required', 'email'],
-    },
-    // Add more fields as needed
-  ];
-
-  // Declare a form variable of type FormGroup to hold the reactive form
+  fields!: FormField[];
   formGroup!: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {}
 
-  // OnInit lifecycle hook
   ngOnInit() {
-    // initialise the formGroup 
+    this.fields = formConfig.fields;
+
     this.formGroup = this.formBuilder.group({});
 
-    // call to create form controls for each field and add them to the form group
     this.setupFormControls();
   }
 

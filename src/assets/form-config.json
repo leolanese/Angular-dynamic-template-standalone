@@ -1,21 +1,16 @@
 {
-    "fields": [
-      {
-        "name": "name",
-        "type": "text",
-        "validators": {
-          "required": true
-        },
-        "errorMessage": "Name is required."
-      },
-      {
-        "name": "email",
-        "type": "email",
-        "validators": {
-          "required": true,
-          "email": true
-        },
-        "errorMessage": "Email is required and must be a valid email address."
-      }
-    ]
-  }
+  "fields": [
+    {
+      "name": "name",
+      "type": "text",
+      "validations": ["required", "minLength3"],
+      "errorMessage": "Name is required and must be at least 3 characters."
+    },
+    {
+      "name": "email",
+      "type": "email",
+      "validations": ["required", "email"],
+      "errorMessage": "Email is required and must be a valid email address."
+    }
+  ]
+}
