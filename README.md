@@ -19,9 +19,15 @@ ng g c dynamic-form --inline-style
 code .
 ```
 
-##  setting noPropertyAccessFromIndexSignature 
+## setting TSlint
+
+### noPropertyAccessFromIndexSignature
 
 Setting it to `true`, TypeScript will enforce that you cannot access properties using the index signature on objects. This will help catch potential errors and improve type safety.
+
+## resolveJsonModule
+
+Allows importing modules with a ‘.json’ extension, which is a common practice in node projects. This includes generating a type for the import based on the static JSON shape.
 
 ```js
 {
