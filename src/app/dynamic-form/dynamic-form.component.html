@@ -7,9 +7,9 @@
       <input [type]="field.type" [formControlName]="field.name" />
   
       <div *ngIf="formGroup.get(field.name)?.invalid && formGroup.get(field.name)?.touched">
-        <div *ngIf="formGroup.get(field.name)?.errors?.required"> {{ field.errorMessage }}</div>
-        <div *ngIf="formGroup.get(field.name)?.errors?.minlength">{{ field.errorMessage }}</div>
-        <div *ngIf="formGroup.get(field.name)?.errors?.email">{{ field.errorMessage }}</div>
+        <div *ngIf="formGroup.get(field.name)?.hasError('required')"> {{ field.errorMessage }}</div>
+        <div *ngIf="formGroup.get(field.name)?.hasError('minlength')">{{ field.errorMessage }}</div>
+        <div *ngIf="formGroup.get(field.name)?.hasError('email')">{{ field.errorMessage }}</div>
       </div>
 
     </div>
