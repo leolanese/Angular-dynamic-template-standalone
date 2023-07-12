@@ -34,6 +34,7 @@ Allows importing modules with a ‘.json’ extension, which is a common practic
   "compilerOptions": {
     "noPropertyAccessFromIndexSignature": true,
     "resolveJsonModule": true,
+    "allowSyntheticDefaultImports" : true,
   }
 }
 ```
