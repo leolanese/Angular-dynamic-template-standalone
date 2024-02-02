@@ -1,4 +1,4 @@
-# AppProject
+# Angular dynamic template standalone
 
 ```js
 // in case CLI it is not install
